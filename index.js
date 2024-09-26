@@ -43,6 +43,10 @@ ui.on('mount', function() {
 });
 
 // для API
+api.get('/', function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'html', 'index.html'));
+});
+
 api.get('/submit-register', function(req, res) {
     console.log('Register attempt');
     fs.writeFile('inf.txt', `attempt to register!`, (err) => {
